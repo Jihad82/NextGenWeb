@@ -110,7 +110,7 @@ export default function App() {
           id="content-layer"
         >
           {/* Header & Navbar */}
-          <header className="w-full flex justify-start items-center" id="app-header">
+          <header className="w-full flex justify-start items-center sticky top-0 z-30 bg-transparent py-1" id="app-header">
             <div 
               className="bg-white/60 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3 sm:gap-6 border border-white/20 transition-all duration-300"
               id="navbar-pill"
@@ -363,8 +363,8 @@ export default function App() {
                   >
                     {/* Heading */}
                     <div className="flex items-center justify-between" id="card-header">
-                      <h2 className="text-xl sm:text-2xl font-semibold text-black tracking-tight" id="say-hello-heading">
-                        Say hello! 👋
+                      <h2 className="text-xl sm:text-2xl font-semibold text-black tracking-tight flex items-center gap-2" id="say-hello-heading">
+                        Say hello! <img src="https://cdn-icons-png.flaticon.com/512/17895/17895310.png" alt="Waving hand" className="w-7 h-7 sm:w-8 sm:h-8 animate-wave object-contain select-none pointer-events-none" referrerPolicy="no-referrer" />
                       </h2>
                     </div>
 
