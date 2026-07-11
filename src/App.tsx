@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Twitter, Circle, Instagram, Linkedin, Menu, X, ArrowRight, Compass, Layers, Monitor, TrendingUp, BookOpen, Clock, Heart } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 // Constants
 const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
 
 const SERVICES = [
-  'Website',
-  'Mobile App',
-  'Web App',
-  'E-Commerce',
-  'Visual Identity',
-  '3D & Motion',
+  'Web Development',
   'Digital Marketing',
-  'Growth & Consulting',
+  'SEO & Optimization',
+  'Brand & UI Design',
+  'E-Commerce Scaling',
+  'Lead Generation',
+  'Paid Ads Campaign',
   'Other'
 ];
 
@@ -325,20 +325,25 @@ export default function App() {
 
           {/* Dynamic Content Sections */}
           <main className="flex-1 flex flex-col justify-end lg:justify-normal" id="main-content-section">
-            
-            {/* 1. HOME VIEW (Headline + Form) */}
-            {activeView === 'home' && (
-              <div 
-                className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 w-full pb-4 animate-in fade-in slide-in-from-bottom-4 duration-300"
-                id="view-home"
-              >
+            <AnimatePresence mode="wait">
+              {/* 1. HOME VIEW (Headline + Form) */}
+              {activeView === 'home' && (
+                <motion.div 
+                  key="home"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 w-full pb-4"
+                  id="view-home"
+                >
                 {/* Headline (left) */}
                 <div className="flex flex-col gap-2" id="headline-wrapper">
                   <p 
                     className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg lg:max-w-lg xl:max-w-2xl shrink-0"
                     id="headline-text"
                   >
-                    We craft bold ideas <br /> and ship them as{' '}
+                    We build high-converting brands <br /> and scale them with{' '}
                     <span 
                       style={{ 
                         fontFamily: "'Instrument Serif', serif", 
@@ -347,7 +352,7 @@ export default function App() {
                       }}
                       className="text-neutral-100"
                     >
-                      products
+                      custom code
                     </span>
                   </p>
                 </div>
@@ -543,13 +548,18 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* 2. OUR STORY VIEW */}
             {activeView === 'story' && (
-              <div 
-                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4 animate-in fade-in slide-in-from-bottom-4 duration-300"
+              <motion.div 
+                key="story"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4"
                 id="view-story"
               >
                 {/* Left Intro Panel */}
@@ -559,10 +569,10 @@ export default function App() {
                     Our story
                   </h2>
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2">
-                    Forma was founded in 2024 with a clean, uncompromised goal: to strip away traditional agency layers, fluff, and bureaucracy, and put elite builders directly in collaboration with visionaries. 
+                    Forma was founded in 2024 to fuse two powerful forces that are too often kept separate: high-end web engineering and conversion-driven performance marketing. We replace bloated agency layers with directly accessible lead builders and growth strategists.
                   </p>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    We believe software should not feel generic or standardized. Every product we build receives bespoke design care, responsive interaction loops, and state-of-the-art engineering.
+                    We believe your website should be your highest-performing sales asset, not just a digital placeholder. Every interface we ship combines premium brand aesthetic, technical SEO, and rapid-loading React architecture.
                   </p>
                 </div>
 
@@ -575,9 +585,9 @@ export default function App() {
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 flex gap-4" id="philosophy-card-1">
                     <span className="font-mono text-xs text-neutral-300 font-bold shrink-0">01</span>
                     <div className="flex flex-col">
-                      <h3 className="text-white text-base font-semibold mb-1">Radical Simplicity</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Brand Authority</h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
-                        We design interfaces with generous negative space, high contrast, and clean layout patterns. We remove cognitive load so users can act.
+                        We formulate high-end brand identities and design systems. We build immersive aesthetics that instantly command authority and earn customer trust.
                       </p>
                     </div>
                   </div>
@@ -586,9 +596,9 @@ export default function App() {
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 flex gap-4" id="philosophy-card-2">
                     <span className="font-mono text-xs text-neutral-300 font-bold shrink-0">02</span>
                     <div className="flex flex-col">
-                      <h3 className="text-white text-base font-semibold mb-1">Elite Craftsmanship</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Performance-First Code</h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
-                        We custom-tailor our codebases, using TypeScript, clean state management, and optimized asset pipelines. No templates, no slow page weight.
+                        We build custom, lightning-fast web architectures. Speed is the ultimate SEO factor: faster loads lead to higher rankings and lower customer acquisition costs.
                       </p>
                     </div>
                   </div>
@@ -597,20 +607,25 @@ export default function App() {
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 flex gap-4" id="philosophy-card-3">
                     <span className="font-mono text-xs text-neutral-300 font-bold shrink-0">03</span>
                     <div className="flex flex-col">
-                      <h3 className="text-white text-base font-semibold mb-1">Absolute Transparency</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Data-Driven Growth</h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
-                        No middle managers or account executives. You sync directly with our lead developers and designers on dedicated instant channels.
+                        No vanity metrics. We deploy automated marketing funnels, semantic SEO mappings, and precise paid campaigns optimized purely for conversion and ROI.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* 3. EXPERTISE VIEW */}
             {activeView === 'expertise' && (
-              <div 
-                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4 animate-in fade-in slide-in-from-bottom-4 duration-300"
+              <motion.div 
+                key="expertise"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4"
                 id="view-expertise"
               >
                 {/* Left Panel */}
@@ -620,12 +635,12 @@ export default function App() {
                     Expertise
                   </h2>
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2">
-                    We cover the entire lifecycle of modern digital products. From conceptual wireframing and user interview loops to production deployments and load tuning.
+                    We deliver holistic growth. By aligning brand identity and web development with targeted search optimization and paid traffic pipelines, we build high-converting customer acquisition systems.
                   </p>
                   
                   {/* Bullet badges */}
                   <div className="flex flex-wrap gap-2 mt-2" id="tech-stack-badges">
-                    {['React / Vite', 'Tailwind CSS', 'TypeScript', 'Node.js', 'NextJS', 'Cloud Ingress', 'Figma Mastery', '3D / Motion'].map((tech) => (
+                    {['Brand Identity', 'React / NextJS', 'Tailwind CSS', 'TypeScript', 'Technical SEO', 'Google Ads', 'Meta Campaigns', 'Conversion Tuning'].map((tech) => (
                       <span key={tech} className="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs text-neutral-300 font-mono">
                         {tech}
                       </span>
@@ -638,65 +653,70 @@ export default function App() {
                   className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-3"
                   id="expertise-capabilities-list"
                 >
-                  {/* Cap 1: Product Design */}
+                  {/* Cap 1: Branding & UI/UX */}
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-design">
                     <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
                       <Compass size={18} />
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-semibold mb-1">Product Design</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Branding & UI/UX Design</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        High-fidelity UI/UX, interactive state flowcharts, bespoke design systems, color matching, and digital layout branding.
+                        High-fidelity brand guidelines, responsive wireframing, interactive Figma designs, and unique typography palettes.
                       </p>
                     </div>
                   </div>
 
-                  {/* Cap 2: Core Engineering */}
+                  {/* Cap 2: Web Development */}
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-engineering">
                     <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                       <Monitor size={18} />
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-semibold mb-1">Core Engineering</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Web Development</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Full-stack React websites, type-safe databases, optimized API latency, progressive web apps, and native containerization.
+                        Custom-coded React & NextJS websites, fast page loads, API proxy setups, and secure, responsive container architecture.
                       </p>
                     </div>
                   </div>
 
-                  {/* Cap 3: Visual & Motion */}
+                  {/* Cap 3: Digital Marketing */}
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-motion">
                     <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
                       <Layers size={18} />
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-semibold mb-1">3D & Interactive Motion</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">Digital Marketing & Paid Ads</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Fluid keyframe micro-interactions, page transition physical springs, custom ambient vector icons, and immersive 3D graphics.
+                        Highly optimized Google and Meta ad campaigns, custom conversion tracking, landing page creation, and lead pipelines.
                       </p>
                     </div>
                   </div>
 
-                  {/* Cap 4: Growth */}
+                  {/* Cap 4: Search Engine Optimization */}
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-growth">
                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
                       <TrendingUp size={18} />
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-semibold mb-1">Growth & Search Strategy</h3>
+                      <h3 className="text-white text-base font-semibold mb-1">SEO & Organic Growth</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Technical SEO structures, high-performance page audits, real-time funnel analytic setups, and rapid conversion rate optimization.
+                        Technical SEO auditing, high-performance page scores, semantic site hierarchies, and high-impact keyword ranking campaigns.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* 4. OUR WORK VIEW */}
             {activeView === 'work' && (
-              <div 
-                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4 animate-in fade-in slide-in-from-bottom-4 duration-300"
+              <motion.div 
+                key="work"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4"
                 id="view-work"
               >
                 {/* Left Panel */}
@@ -706,7 +726,7 @@ export default function App() {
                     Our work
                   </h2>
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2">
-                    A highly curated gallery of digital systems we've shipped lately. Every project starts with real-world problems and lands with polished, high-contrast, scalable digital products.
+                    A highly curated gallery of high-performing web platforms and targeted campaign conversions we have delivered. We build the robust infrastructure and supply the precise growth channels to scale your brand.
                   </p>
                 </div>
 
@@ -719,12 +739,12 @@ export default function App() {
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-1">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-pink-400">01 / BRAND + WEB</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">Live</span>
+                        <span className="text-xs font-mono text-pink-400">01 / WEB + SEO</span>
+                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">+400%</span>
                       </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">Aura Space</h3>
+                      <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">Vespera Skincare</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Ambient soundscape & meditation platform. Custom audio player, physics waves, and dark-twilight UI.
+                        Premium e-commerce overhaul built with React. Leveraged targeted semantic SEO to achieve a 400% organic traffic surge.
                       </p>
                     </div>
                     <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
@@ -736,12 +756,12 @@ export default function App() {
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-2">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-blue-400">02 / APP + LEDGER</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">V2</span>
+                        <span className="text-xs font-mono text-blue-400">02 / DEV + CAMPAIGNS</span>
+                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">3.4x ROAS</span>
                       </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-blue-300 transition-colors">Nexus Ledger</h3>
+                      <h3 className="text-white text-lg font-semibold group-hover:text-blue-300 transition-colors">Apex SaaS</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        High-frequency crypto asset manager. Low-latency streaming charts, touch gesture controls, and secure auth.
+                        NextJS lead acquisition web app fused with structured Meta and Google Ads. Achieved a 3.4x return on ad spend.
                       </p>
                     </div>
                     <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
@@ -753,12 +773,12 @@ export default function App() {
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-3">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-emerald-400">03 / INTERACTIVE</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">Web3</span>
+                        <span className="text-xs font-mono text-emerald-400">03 / BRAND + CONVERSION</span>
+                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">-42% CAC</span>
                       </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-emerald-300 transition-colors">Kroma Gallery</h3>
+                      <h3 className="text-white text-lg font-semibold group-hover:text-emerald-300 transition-colors">Kroma Interactive</h3>
                       <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Bespoke fine art marketplace. Dynamic Canvas overlays, custom checkout, and stripe proxy routes.
+                        Comprehensive brand voice redesign and landing page speed audit that slashed customer acquisition costs by 42%.
                       </p>
                     </div>
                     <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
@@ -766,13 +786,18 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* 5. JOURNAL VIEW */}
             {activeView === 'journal' && (
-              <div 
-                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4 animate-in fade-in slide-in-from-bottom-4 duration-300"
+              <motion.div 
+                key="journal"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full pb-4"
                 id="view-journal"
               >
                 {/* Left Panel */}
@@ -782,7 +807,7 @@ export default function App() {
                     Journal
                   </h2>
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2">
-                    A space for our unfiltered thoughts on digital layouts, typography design systems, front-end performance pipelines, and product scaling.
+                    A raw, tactical repository of our insights on conversion rate optimization, technical search engine rankings, brand strategy, and state-of-the-art web performance.
                   </p>
                 </div>
 
@@ -794,50 +819,51 @@ export default function App() {
                   {/* Article 1 */}
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-1">
                     <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-1">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> Design</span>
+                      <span className="flex items-center gap-1"><BookOpen size={10} /> SEO & Speed</span>
                       <span>·</span>
                       <span className="flex items-center gap-1"><Clock size={10} /> 4 min read</span>
                     </div>
                     <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      Designing for the 120Hz Era: Fluid physics & tactile animations
+                      How 100ms lag directly impacts search positions and checkout conversions
                     </h3>
                     <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      With mobile displays and desktop monitors standardizing on high refresh rates, static layouts look dead. Let's study how tactile spring physics can keep interfaces alive.
+                      Exploring Google's Core Web Vitals. Let's break down how sub-second speed boosts semantic search ranking weight and slashes card abandonment rates.
                     </p>
                   </div>
 
                   {/* Article 2 */}
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-2">
                     <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-2">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> Tech Stack</span>
+                      <span className="flex items-center gap-1"><BookOpen size={10} /> Performance Ads</span>
                       <span>·</span>
                       <span className="flex items-center gap-1"><Clock size={10} /> 6 min read</span>
                     </div>
                     <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      Why We Swapped Next.js for Vite + Express proxy routes
+                      Architecting custom landing pages for Meta & Google campaign success
                     </h3>
                     <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      An objective study into how client-side compilation, direct Node server entry points, and static bundling can optimize page-load speed and eliminate serverless cold starts.
+                      Forget standard generic builder page templates. How bespoke layouts with clean font pairing, precise loading buffers, and focused action steps scale return on ad spend.
                     </p>
                   </div>
 
                   {/* Article 3 */}
                   <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-3">
                     <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-3">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> Philosophy</span>
+                      <span className="flex items-center gap-1"><BookOpen size={10} /> Brand Identity</span>
                       <span>·</span>
                       <span className="flex items-center gap-1"><Clock size={10} /> 3 min read</span>
                     </div>
                     <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      The Death of Generic Templates: bespoke code is winning again
+                      Typography and user trust: why brand styling is the silent growth driver
                     </h3>
                     <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      Users have developed blindness towards pre-built visual templates and cookie-cutter layouts. Learn how hand-crafted typography pairing and deliberate whitespace elevate user trust.
+                      In crowded, saturated social feeds, modern visual clarity wins attention. Learn how premium custom letter-spacing and contrast elevate B2B sales authority.
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
+            </AnimatePresence>
           </main>
         </div>
       </div>
