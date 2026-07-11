@@ -106,7 +106,7 @@ export default function App() {
 
         {/* Content Layer */}
         <div 
-          className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6 justify-between"
+          className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full lg:min-h-0 p-4 sm:p-6 md:p-8 gap-6 justify-between overflow-y-auto"
           id="content-layer"
         >
           {/* Header & Navbar */}
@@ -324,7 +324,7 @@ export default function App() {
           )}
 
           {/* Dynamic Content Sections */}
-          <main className="flex-1 flex flex-col justify-end" id="main-content-section">
+          <main className="flex-1 flex flex-col justify-end lg:justify-normal" id="main-content-section">
             
             {/* 1. HOME VIEW (Headline + Form) */}
             {activeView === 'home' && (
@@ -354,7 +354,7 @@ export default function App() {
 
                 {/* Contact Form Card (right) */}
                 <div 
-                  className="w-full lg:w-[min(480px,45%)] shrink-0 max-h-[500px] lg:max-h-[550px] overflow-y-auto"
+                  className="w-full lg:w-[min(480px,45%)] shrink-0"
                   id="contact-form-card"
                 >
                   <div 
@@ -568,7 +568,7 @@ export default function App() {
 
                 {/* Right Philosophy Cards Panel */}
                 <div 
-                  className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-4 max-h-[400px] lg:max-h-[450px] overflow-y-auto pr-1"
+                  className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-4"
                   id="story-philosophy-scroll"
                 >
                   {/* Philosophy 1 */}
@@ -635,7 +635,7 @@ export default function App() {
 
                 {/* Right Panel: Capability Grid */}
                 <div 
-                  className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-3 max-h-[400px] lg:max-h-[450px] overflow-y-auto pr-1"
+                  className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-3"
                   id="expertise-capabilities-list"
                 >
                   {/* Cap 1: Product Design */}
@@ -712,7 +712,7 @@ export default function App() {
 
                 {/* Right Panel: Work Items */}
                 <div 
-                  className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-4 max-h-[400px] lg:max-h-[450px] overflow-y-auto pr-1"
+                  className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-4"
                   id="work-case-studies"
                 >
                   {/* Case Study 1 */}
@@ -788,7 +788,7 @@ export default function App() {
 
                 {/* Right Panel: Articles */}
                 <div 
-                  className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-3 max-h-[400px] lg:max-h-[450px] overflow-y-auto pr-1"
+                  className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-3"
                   id="journal-articles"
                 >
                   {/* Article 1 */}
