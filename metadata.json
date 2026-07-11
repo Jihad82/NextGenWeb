@@ -1,0 +1,6 @@
+{
+  "name": "Video Landing Page with Contact Form",
+  "description": "A responsive single-page landing page featuring a stunning full-screen background video and an interactive multi-step service contact form.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
