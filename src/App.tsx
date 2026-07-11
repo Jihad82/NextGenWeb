@@ -737,7 +737,7 @@ export default function App() {
                   id="work-case-studies"
                 >
                   {/* Case Study 1 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-1">
+                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-1">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-mono text-pink-400">01 / WEB + SEO</span>
@@ -754,7 +754,7 @@ export default function App() {
                   </div>
 
                   {/* Case Study 2 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-2">
+                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-2">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-mono text-blue-400">02 / DEV + CAMPAIGNS</span>
@@ -771,7 +771,7 @@ export default function App() {
                   </div>
 
                   {/* Case Study 3 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-3">
+                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-3">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-mono text-emerald-400">03 / BRAND + CONVERSION</span>
