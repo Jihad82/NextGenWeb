@@ -340,10 +340,11 @@ export default function App() {
                 {/* Headline (left) */}
                 <div className="flex flex-col gap-2" id="headline-wrapper">
                   <p 
-                    className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg lg:max-w-lg xl:max-w-2xl shrink-0"
+                    className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg lg:max-w-xl xl:max-w-3xl shrink-0"
                     id="headline-text"
                   >
-                    We build high-converting brands <br /> and scale them with{' '}
+                    Build a Brand People Trust. <br />
+                    Grow Faster with{' '}
                     <span 
                       style={{ 
                         fontFamily: "'Instrument Serif', serif", 
@@ -352,7 +353,7 @@ export default function App() {
                       }}
                       className="text-neutral-100"
                     >
-                      custom code
+                      Smart Marketing & Custom Digital Solutions.
                     </span>
                   </p>
                 </div>
