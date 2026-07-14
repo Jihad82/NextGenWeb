@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Twitter, Circle, Instagram, Linkedin, Menu, X, ArrowRight, Compass, Layers, Monitor, TrendingUp, BookOpen, Clock, Heart } from 'lucide-react';
+import { Twitter, Circle, Instagram, Linkedin, Menu, X, ArrowRight, Compass, Layers, Monitor, TrendingUp, BookOpen, Clock, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 // Constants
@@ -69,6 +69,32 @@ const PROJECTS_DATA: ProjectItem[] = [
     solution: 'Reformed their complete brand voice with custom luxury typography, rich editorial spacing, and curated high-contrast aesthetics. Built a lightning-fast performance landing page with seamless Framer Motion micro-interactions to demonstrate design leadership and build immediate visitor trust.',
     results: 'Slashed client onboarding friction, leading to a 42% reduction in overall Customer Acquisition Cost (CAC) and a 65% surge in high-value inbound sales conversations.',
     services: ['Brand & UI Design', 'SEO & Optimization', 'Conversion Tuning', 'Lead Generation'],
+  },
+  {
+    id: 'lumina',
+    num: '04',
+    category: 'WEB + DIGITAL',
+    badge: '+180% LEADS',
+    badgeColor: 'text-amber-400',
+    title: 'Lumina Capital',
+    summary: 'Modern B2B fintech platform with secure user journeys and high-converting dynamic calculators that boosted inquiries by 180%.',
+    challenge: 'Lumina Capital had a high-traffic fintech site but low conversion rates. Visitors bounced because of complex financial jargon and intimidating inquiry forms that required lengthy manual entry.',
+    solution: 'We built a streamlined client application with engaging interactive financial simulators, automatic field validation, and responsive transitions. All forms were designed to load in steps, keeping user cognitive load low.',
+    results: 'Inquiries increased by 180% in 60 days, with form abandonment dropping from 74% to 22%.',
+    services: ['Web Development', 'Brand & UI Design', 'Lead Generation'],
+  },
+  {
+    id: 'zenith',
+    num: '05',
+    category: 'E-COMMERCE',
+    badge: '+210% SALES',
+    badgeColor: 'text-purple-400',
+    title: 'Zenith Apparel',
+    summary: 'Ultra-clean premium lifestyle store optimized for performance and custom product customization paths.',
+    challenge: 'Zenith struggled with cart drop-offs on high-end custom orders, as their generic interface failed to deliver a premium luxury brand experience.',
+    solution: 'Crafted custom, highly tactile product configurators with precise layouts, high-fidelity responsive previews, and instant sub-second checkout speeds.',
+    results: 'Sales conversions climbed by 210%, with average order value increasing by 35% within the first month.',
+    services: ['Web Development', 'E-Commerce Scaling', 'Brand & UI Design'],
   }
 ];
 
@@ -133,6 +159,38 @@ const JOURNAL_DATA: JournalItem[] = [
     ],
     deepDive: "By utilizing spacious padding, modern, crisp, human-designed typefaces, and omitting unrequested noise, your brand commands premium fees without saying a word. In crowded, saturated social feeds, modern visual clarity wins attention.",
     takeaway: "Pristine visual styling is not cosmetic fluff. It is an extremely high-leverage business asset that builds immediate sales authority."
+  },
+  {
+    id: 'conversion-design',
+    category: 'Conversion Tuning',
+    readTime: '5 min read',
+    title: 'The anatomy of a landing page hero section that converts at 12%+',
+    summary: 'Breaking down visual focal points, trust signals, and the exact spacing balance that compels actions without overwhelming readers.',
+    publishDate: 'May 30, 2026',
+    introduction: "The hero section of your page carries over 80% of the conversion weight. If visitors don't understand your unique value proposition within 3 seconds, they will bounce. Crafting a high-converting hero section requires a calculated intersection of visual typography hierarchy and immediate clarity.",
+    keyInsights: [
+      "The 3-Second Rule: Your primary headline must answer what you do, who it is for, and what action to take next, instantly.",
+      "Eliminate Visual Noise: Remove massive uncompressed images, complex background patterns, and confusing dual-action CTAs.",
+      "The Power of Negative Space: Generous margins focus the user's eyes on your core message and action buttons naturally."
+    ],
+    deepDive: "We recommend a single, bold, clean display heading, a secondary supporting text line that details the actual benefit, and a prominent call-to-action button flanked by authentic trust anchors like real outcome statistics or client logos. Keep animations minimal; subtle page entries perform better than distracting sliding carousels.",
+    takeaway: "Keep your hero sections focused, fast, and clear. Slower pages with fancy clutter always leak conversion revenue."
+  },
+  {
+    id: 'organic-seo-framework',
+    category: 'SEO & Speed',
+    readTime: '7 min read',
+    title: 'Strategic semantic SEO: outranking venture-backed giants on a budget',
+    summary: 'How to discover high-value search intent clusters and leverage technical page architecture to capture organic traffic without high budget dependencies.',
+    publishDate: 'May 14, 2026',
+    introduction: "Many companies believe SEO requires spending tens of thousands on continuous backlink buying campaigns. In reality, modern search engines reward deep semantic completeness and outstanding user loading experience above all else.",
+    keyInsights: [
+      "Intent Mapping: Group your keywords into hyper-targeted topic hubs rather than individual disconnected landing pages.",
+      "Semantic Schema Markup: Use high-quality JSON-LD structured data to tell search engines exactly what your content represents.",
+      "Mobile Responsiveness: Over 70% of organic search traffic originates on mobile; pages with slow mobile layouts are strictly deprioritized."
+    ],
+    deepDive: "By creating authoritative, high-density resource centers built on modern high-speed frameworks, your pages gain immediate indexing weight. Consistently audit your site's heading structure, compress and modernize images into lightweight formats, and ensure your site satisfies user intent immediately to keep bounce rates minimal.",
+    takeaway: "Satisfy human intent with high-speed performance, and search engines will naturally promote your brand to page one."
   }
 ];
 
@@ -166,6 +224,8 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<JournalItem | null>(null);
   const [likedArticles, setLikedArticles] = useState<Record<string, boolean>>({});
+  const [projectPage, setProjectPage] = useState(1);
+  const [journalPage, setJournalPage] = useState(1);
 
   // Contact Form State
   const [selected, setSelected] = useState<string[]>([]);
@@ -206,6 +266,8 @@ export default function App() {
     setMobileMenuOpen(false);
     setSelectedProject(null);
     setSelectedArticle(null);
+    setProjectPage(1);
+    setJournalPage(1);
   };
 
   return (
@@ -846,28 +908,87 @@ export default function App() {
                   className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-4"
                   id="work-case-studies"
                 >
-                  {PROJECTS_DATA.map((project, idx) => (
-                    <div 
-                      key={project.id}
-                      onClick={() => setSelectedProject(project)}
-                      className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" 
-                      id={`project-card-${idx + 1}`}
-                    >
-                      <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                          <span className={`text-xs font-mono ${project.badgeColor}`}>{project.num} / {project.category}</span>
-                          <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">{project.badge}</span>
-                        </div>
-                        <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">{project.title}</h3>
-                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                          {project.summary}
-                        </p>
-                      </div>
-                      <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
-                        <ArrowRight size={16} />
-                      </div>
+                  <div className="flex flex-col gap-4">
+                    {PROJECTS_DATA.slice((projectPage - 1) * 2, projectPage * 2).map((project, idx) => {
+                      const absoluteIndex = (projectPage - 1) * 2 + idx;
+                      return (
+                        <motion.div 
+                          key={project.id}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: idx * 0.05 }}
+                          onClick={() => setSelectedProject(project)}
+                          className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" 
+                          id={`project-card-${absoluteIndex + 1}`}
+                        >
+                          <div className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`text-xs font-mono ${project.badgeColor}`}>{project.num} / {project.category}</span>
+                              <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">{project.badge}</span>
+                            </div>
+                            <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">{project.title}</h3>
+                            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                              {project.summary}
+                            </p>
+                          </div>
+                          <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
+                            <ArrowRight size={16} />
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Pagination Controls */}
+                  <div className="flex items-center justify-between mt-1 px-1 text-xs text-neutral-400 font-mono border-t border-white/5 pt-3" id="project-pagination">
+                    <div>
+                      Page {projectPage} of {Math.ceil(PROJECTS_DATA.length / 2)}
                     </div>
-                  ))}
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setProjectPage(prev => Math.max(prev - 1, 1))}
+                        disabled={projectPage === 1}
+                        className={`p-1.5 rounded-lg border border-white/10 flex items-center justify-center transition-all ${
+                          projectPage === 1 
+                            ? 'opacity-30 cursor-not-allowed text-neutral-600' 
+                            : 'bg-white/5 hover:bg-white/15 hover:border-white/20 active:scale-95 cursor-pointer text-white'
+                        }`}
+                        aria-label="Previous page"
+                        id="btn-project-prev"
+                      >
+                        <ChevronLeft size={13} />
+                      </button>
+
+                      {Array.from({ length: Math.ceil(PROJECTS_DATA.length / 2) }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => setProjectPage(page)}
+                          className={`w-7 h-7 rounded-lg text-xs font-semibold font-mono flex items-center justify-center transition-all ${
+                            projectPage === page
+                              ? 'bg-white text-black font-bold scale-105 shadow'
+                              : 'bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/15 text-neutral-300 cursor-pointer'
+                          }`}
+                          id={`btn-project-page-${page}`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => setProjectPage(prev => Math.min(prev + 1, Math.ceil(PROJECTS_DATA.length / 2)))}
+                        disabled={projectPage === Math.ceil(PROJECTS_DATA.length / 2)}
+                        className={`p-1.5 rounded-lg border border-white/10 flex items-center justify-center transition-all ${
+                          projectPage === Math.ceil(PROJECTS_DATA.length / 2) 
+                            ? 'opacity-30 cursor-not-allowed text-neutral-600' 
+                            : 'bg-white/5 hover:bg-white/15 hover:border-white/20 active:scale-95 cursor-pointer text-white'
+                        }`}
+                        aria-label="Next page"
+                        id="btn-project-next"
+                      >
+                        <ChevronRight size={13} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -899,26 +1020,85 @@ export default function App() {
                   className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-3"
                   id="journal-articles"
                 >
-                  {JOURNAL_DATA.map((article, idx) => (
-                    <div 
-                      key={article.id}
-                      onClick={() => setSelectedArticle(article)}
-                      className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col gap-2" 
-                      id={`article-card-${idx + 1}`}
-                    >
-                      <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id={`article-meta-${idx + 1}`}>
-                        <span className="flex items-center gap-1"><BookOpen size={10} /> {article.category}</span>
-                        <span>·</span>
-                        <span className="flex items-center gap-1"><Clock size={10} /> {article.readTime}</span>
-                      </div>
-                      <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                        {article.title}
-                      </h3>
-                      <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                        {article.summary}
-                      </p>
+                  <div className="flex flex-col gap-3">
+                    {JOURNAL_DATA.slice((journalPage - 1) * 2, journalPage * 2).map((article, idx) => {
+                      const absoluteIndex = (journalPage - 1) * 2 + idx;
+                      return (
+                        <motion.div 
+                          key={article.id}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: idx * 0.05 }}
+                          onClick={() => setSelectedArticle(article)}
+                          className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col gap-2" 
+                          id={`article-card-${absoluteIndex + 1}`}
+                        >
+                          <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id={`article-meta-${absoluteIndex + 1}`}>
+                            <span className="flex items-center gap-1"><BookOpen size={10} /> {article.category}</span>
+                            <span>·</span>
+                            <span className="flex items-center gap-1"><Clock size={10} /> {article.readTime}</span>
+                          </div>
+                          <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
+                            {article.title}
+                          </h3>
+                          <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
+                            {article.summary}
+                          </p>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Pagination Controls */}
+                  <div className="flex items-center justify-between mt-1 px-1 text-xs text-neutral-400 font-mono border-t border-white/5 pt-3" id="journal-pagination">
+                    <div>
+                      Page {journalPage} of {Math.ceil(JOURNAL_DATA.length / 2)}
                     </div>
-                  ))}
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setJournalPage(prev => Math.max(prev - 1, 1))}
+                        disabled={journalPage === 1}
+                        className={`p-1.5 rounded-lg border border-white/10 flex items-center justify-center transition-all ${
+                          journalPage === 1 
+                            ? 'opacity-30 cursor-not-allowed text-neutral-600' 
+                            : 'bg-white/5 hover:bg-white/15 hover:border-white/20 active:scale-95 cursor-pointer text-white'
+                        }`}
+                        aria-label="Previous page"
+                        id="btn-journal-prev"
+                      >
+                        <ChevronLeft size={13} />
+                      </button>
+
+                      {Array.from({ length: Math.ceil(JOURNAL_DATA.length / 2) }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => setJournalPage(page)}
+                          className={`w-7 h-7 rounded-lg text-xs font-semibold font-mono flex items-center justify-center transition-all ${
+                            journalPage === page
+                              ? 'bg-white text-black font-bold scale-105 shadow'
+                              : 'bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/15 text-neutral-300 cursor-pointer'
+                          }`}
+                          id={`btn-journal-page-${page}`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => setJournalPage(prev => Math.min(prev + 1, Math.ceil(JOURNAL_DATA.length / 2)))}
+                        disabled={journalPage === Math.ceil(JOURNAL_DATA.length / 2)}
+                        className={`p-1.5 rounded-lg border border-white/10 flex items-center justify-center transition-all ${
+                          journalPage === Math.ceil(JOURNAL_DATA.length / 2) 
+                            ? 'opacity-30 cursor-not-allowed text-neutral-600' 
+                            : 'bg-white/5 hover:bg-white/15 hover:border-white/20 active:scale-95 cursor-pointer text-white'
+                        }`}
+                        aria-label="Next page"
+                        id="btn-journal-next"
+                      >
+                        <ChevronRight size={13} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
