@@ -16,6 +16,126 @@ const SERVICES = [
   'Other'
 ];
 
+interface ProjectItem {
+  id: string;
+  num: string;
+  category: string;
+  badge: string;
+  badgeColor: string;
+  title: string;
+  summary: string;
+  challenge: string;
+  solution: string;
+  results: string;
+  services: string[];
+}
+
+const PROJECTS_DATA: ProjectItem[] = [
+  {
+    id: 'vespera',
+    num: '01',
+    category: 'WEB + SEO',
+    badge: '+400% SURGE',
+    badgeColor: 'text-pink-400',
+    title: 'Vespera Skincare',
+    summary: 'Premium e-commerce overhaul built with React. Leveraged targeted semantic SEO to achieve a 400% organic traffic surge.',
+    challenge: 'Vespera Skincare struggled with a sluggish, slow-loading legacy Shopify site and rising customer acquisition costs. Organic traffic was stagnant, and mobile users were bouncing before checking out due to unresponsive design layouts.',
+    solution: 'We engineered an ultra-lightweight, high-performance custom React storefront designed with crisp typography, instant image loading libraries, and robust styling. Combined this with high-performance technical SEO schema, semantic site hierarchies, and deep audit optimizations to maximize Core Web Vitals scores.',
+    results: 'Slashed average page load time down to 1.2 seconds, resulting in a 400% surge in organic search traffic and a 45% increase in mobile checkout conversion rate within 90 days.',
+    services: ['Web Development', 'SEO & Optimization', 'Brand & UI Design', 'E-Commerce Scaling'],
+  },
+  {
+    id: 'apex',
+    num: '02',
+    category: 'DEV + CAMPAIGNS',
+    badge: '3.4x ROAS',
+    badgeColor: 'text-blue-400',
+    title: 'Apex SaaS',
+    summary: 'NextJS lead acquisition web app fused with structured Meta and Google Ads. Achieved a 3.4x return on ad spend.',
+    challenge: 'Apex SaaS had a highly competitive B2B product but struggled to capture high-intent developer and enterprise leads cost-effectively. Their ad traffic was dropping off due to long, multi-step forms and unoptimized landing page experiences.',
+    solution: 'Designed and developed a fast Next.js conversion funnel with simplified interactive step forms. Implemented robust automated pixel and API server-side conversion tracking. Set up high-performance targeted Meta and Google Search campaigns focused on high-value keywords and precise buyer personas.',
+    results: 'Boosted overall lead-to-signup conversion rate by 120%, driving a 3.4x Return on Ad Spend (ROAS) and securing over 1,500 qualified sales demos in the first quarter alone.',
+    services: ['Web Development', 'Paid Ads Campaign', 'Lead Generation', 'Digital Marketing'],
+  },
+  {
+    id: 'kroma',
+    num: '03',
+    category: 'BRAND + CONVERSION',
+    badge: '-42% CAC',
+    badgeColor: 'text-emerald-400',
+    title: 'Kroma Interactive',
+    summary: 'Comprehensive brand voice redesign and landing page speed audit that slashed customer acquisition costs by 42%.',
+    challenge: 'Kroma Interactive suffered from a generic digital identity that failed to represent their sophisticated interactive design agency work, leading to high sales friction and expensive customer acquisition costs (CAC).',
+    solution: 'Reformed their complete brand voice with custom luxury typography, rich editorial spacing, and curated high-contrast aesthetics. Built a lightning-fast performance landing page with seamless Framer Motion micro-interactions to demonstrate design leadership and build immediate visitor trust.',
+    results: 'Slashed client onboarding friction, leading to a 42% reduction in overall Customer Acquisition Cost (CAC) and a 65% surge in high-value inbound sales conversations.',
+    services: ['Brand & UI Design', 'SEO & Optimization', 'Conversion Tuning', 'Lead Generation'],
+  }
+];
+
+interface JournalItem {
+  id: string;
+  category: string;
+  readTime: string;
+  title: string;
+  summary: string;
+  publishDate: string;
+  introduction: string;
+  keyInsights: string[];
+  deepDive: string;
+  takeaway: string;
+}
+
+const JOURNAL_DATA: JournalItem[] = [
+  {
+    id: 'lag-conversions',
+    category: 'SEO & Speed',
+    readTime: '4 min read',
+    title: 'How 100ms lag directly impacts search positions and checkout conversions',
+    summary: "Exploring Google's Core Web Vitals. Let's break down how sub-second speed boosts semantic search ranking weight and slashes card abandonment rates.",
+    publishDate: 'July 2, 2026',
+    introduction: "In modern digital commerce, speed isn't merely a convenience feature—it is a critical ranking factor and conversion engine. Google's transition to Core Web Vitals (including Interaction to Next Paint and Largest Contentful Paint) means slow websites are actively pushed down in organic search results. At the same time, every millisecond of loading lag represents friction that leaks qualified checkout revenue.",
+    keyInsights: [
+      "Search Rank Weight: Google heavily penalizes slow LCP (Largest Contentful Paint) scores by reducing crawl budgets and keyword index priority.",
+      "Mobile Checkout Friction: Over 68% of e-commerce buyers bounce when interactive components take longer than 200ms to respond.",
+      "The 100ms Formula: Shaving just 100ms off your average loading speed correlates directly with a 1.11% increase in absolute conversion rate."
+    ],
+    deepDive: "To optimize latency, we recommend moving away from bloated, heavy pre-built templates and transitioning toward high-performance React frameworks. By loading static assets on edge servers, minimizing cumulative layout shifts (CLS), and lazily initializing third-party marketing tags, brands can achieve instantaneous page feedback. Speed isn't just about code quality; it is a direct line item on your monthly income statement.",
+    takeaway: "An instant storefront is the absolute foundation of successful modern customer acquisition. Optimize speed before scaling ad spend."
+  },
+  {
+    id: 'custom-landing-pages',
+    category: 'Performance Ads',
+    readTime: '6 min read',
+    title: 'Architecting custom landing pages for Meta & Google campaign success',
+    summary: 'Forget standard generic builder page templates. How bespoke layouts with clean font pairing, precise loading buffers, and focused action steps scale return on ad spend.',
+    publishDate: 'June 24, 2026',
+    introduction: "A custom high-performance campaign landing page is essentially an editorial narrative focused on conversion. Traditional page builders compromise quality with dense overhead. By building tailored code structures, you remove user friction completely.",
+    keyInsights: [
+      "Shattering the Template Ceiling: Bloated visual builders inject thousands of lines of unneeded CSS/JS, degrading campaign loading speed and raising CPC.",
+      "Uncompromising Focus: High-converting landing pages eliminate external links, multi-level headers, and secondary menus to align purely with a single target action.",
+      "Data-driven Attribution: Real success requires robust, server-side conversion tracking (like Meta CAPI) to feed machine-learning ad auction models with high-quality user signals."
+    ],
+    deepDive: "A high-performing campaign landing page is essentially an editorial story. It starts with an authoritative display heading, uses custom letter-spacing and negative space to establish immediate premium credibility, and answers specific user objections sequentially. Using lightweight frameworks allows us to achieve immediate loads on mobile networks where ad traffic is most prominent.",
+    takeaway: "To triple your ROAS, stop driving premium paid traffic to slow, general-purpose corporate websites. Build specialized, laser-focused landing pages."
+  },
+  {
+    id: 'typography-trust',
+    category: 'Brand Identity',
+    readTime: '3 min read',
+    title: 'Typography and user trust: why brand styling is the silent growth driver',
+    summary: 'In crowded, saturated social feeds, modern visual clarity wins attention. Learn how premium custom letter-spacing and contrast elevate B2B sales authority.',
+    publishDate: 'June 18, 2026',
+    introduction: "Visual styling is the first point of contact with any prospective client. If your layout feels cluttered, dense, or styled with random margins, buyers project that operational untidiness onto your product quality.",
+    keyInsights: [
+      "The Aesthetic Contrast Ratio: High-contrast off-whites paired with deep charcoal grays feel sophisticated, instantly separating you from generic blue-purple templates.",
+      "Visual Hierarchy Control: Consistent sizing contrasts (e.g., massive editorial serif headers paired with crisp monospace metadata) guide user attention seamlessly.",
+      "Typography as Authority: When a layout looks clean, balanced, and elegant, users subconsciously assign a premium valuation and higher trust to the service itself."
+    ],
+    deepDive: "By utilizing spacious padding, modern, crisp, human-designed typefaces, and omitting unrequested noise, your brand commands premium fees without saying a word. In crowded, saturated social feeds, modern visual clarity wins attention.",
+    takeaway: "Pristine visual styling is not cosmetic fluff. It is an extremely high-leverage business asset that builds immediate sales authority."
+  }
+];
+
 // Helper Component for Social Buttons
 interface SocialBtnProps {
   href: string;
@@ -43,6 +163,9 @@ export default function App() {
   // Navigation State
   const [activeView, setActiveView] = useState<'home' | 'story' | 'expertise' | 'work' | 'journal'>('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<JournalItem | null>(null);
+  const [likedArticles, setLikedArticles] = useState<Record<string, boolean>>({});
 
   // Contact Form State
   const [selected, setSelected] = useState<string[]>([]);
@@ -81,6 +204,8 @@ export default function App() {
   const handleNavigate = (view: 'home' | 'story' | 'expertise' | 'work' | 'journal') => {
     setActiveView(view);
     setMobileMenuOpen(false);
+    setSelectedProject(null);
+    setSelectedArticle(null);
   };
 
   return (
@@ -641,7 +766,7 @@ export default function App() {
                   
                   {/* Bullet badges */}
                   <div className="flex flex-wrap gap-2 mt-2" id="tech-stack-badges">
-                    {['Brand Identity', 'React / NextJS', 'Tailwind CSS', 'TypeScript', 'Technical SEO', 'Google Ads', 'Meta Campaigns', 'Conversion Tuning'].map((tech) => (
+                    {['React / NextJS', 'Tailwind CSS', 'TypeScript', 'Technical SEO', 'Google Ads', 'Meta Campaigns', 'Conversion Tuning'].map((tech) => (
                       <span key={tech} className="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs text-neutral-300 font-mono">
                         {tech}
                       </span>
@@ -654,19 +779,6 @@ export default function App() {
                   className="w-full lg:w-[min(500px,48%)] shrink-0 flex flex-col gap-3"
                   id="expertise-capabilities-list"
                 >
-                  {/* Cap 1: Branding & UI/UX */}
-                  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-design">
-                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
-                      <Compass size={18} />
-                    </div>
-                    <div>
-                      <h3 className="text-white text-base font-semibold mb-1">Branding & UI/UX Design</h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        High-fidelity brand guidelines, responsive wireframing, interactive Figma designs, and unique typography palettes.
-                      </p>
-                    </div>
-                  </div>
-
                   {/* Cap 2: Web Development */}
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 flex gap-4 items-start" id="cap-engineering">
                     <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
@@ -729,63 +841,33 @@ export default function App() {
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2">
                     A highly curated gallery of high-performing web platforms and targeted campaign conversions we have delivered. We build the robust infrastructure and supply the precise growth channels to scale your brand.
                   </p>
-                </div>
-
-                {/* Right Panel: Work Items */}
+                </div>                {/* Right Panel: Work Items */}
                 <div 
                   className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-4"
                   id="work-case-studies"
                 >
-                  {/* Case Study 1 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-1">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-pink-400">01 / WEB + SEO</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">+400%</span>
+                  {PROJECTS_DATA.map((project, idx) => (
+                    <div 
+                      key={project.id}
+                      onClick={() => setSelectedProject(project)}
+                      className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" 
+                      id={`project-card-${idx + 1}`}
+                    >
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-xs font-mono ${project.badgeColor}`}>{project.num} / {project.category}</span>
+                          <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">{project.badge}</span>
+                        </div>
+                        <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">{project.title}</h3>
+                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                          {project.summary}
+                        </p>
                       </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-pink-300 transition-colors">Vespera Skincare</h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Premium e-commerce overhaul built with React. Leveraged targeted semantic SEO to achieve a 400% organic traffic surge.
-                      </p>
-                    </div>
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
-
-                  {/* Case Study 2 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-2">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-blue-400">02 / DEV + CAMPAIGNS</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">3.4x ROAS</span>
+                      <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
+                        <ArrowRight size={16} />
                       </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-blue-300 transition-colors">Apex SaaS</h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        NextJS lead acquisition web app fused with structured Meta and Google Ads. Achieved a 3.4x return on ad spend.
-                      </p>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
-
-                  {/* Case Study 3 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 flex flex-col sm:flex-row justify-between sm:items-center gap-4 cursor-pointer" id="project-card-3">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-emerald-400">03 / BRAND + CONVERSION</span>
-                        <span className="text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded-full font-mono">-42% CAC</span>
-                      </div>
-                      <h3 className="text-white text-lg font-semibold group-hover:text-emerald-300 transition-colors">Kroma Interactive</h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        Comprehensive brand voice redesign and landing page speed audit that slashed customer acquisition costs by 42%.
-                      </p>
-                    </div>
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:translate-x-1 transition-transform">
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </motion.div>
             )}
@@ -817,56 +899,318 @@ export default function App() {
                   className="w-full lg:w-[min(520px,50%)] shrink-0 flex flex-col gap-3"
                   id="journal-articles"
                 >
-                  {/* Article 1 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-1">
-                    <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-1">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> SEO & Speed</span>
-                      <span>·</span>
-                      <span className="flex items-center gap-1"><Clock size={10} /> 4 min read</span>
+                  {JOURNAL_DATA.map((article, idx) => (
+                    <div 
+                      key={article.id}
+                      onClick={() => setSelectedArticle(article)}
+                      className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col gap-2" 
+                      id={`article-card-${idx + 1}`}
+                    >
+                      <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id={`article-meta-${idx + 1}`}>
+                        <span className="flex items-center gap-1"><BookOpen size={10} /> {article.category}</span>
+                        <span>·</span>
+                        <span className="flex items-center gap-1"><Clock size={10} /> {article.readTime}</span>
+                      </div>
+                      <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
+                        {article.summary}
+                      </p>
                     </div>
-                    <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      How 100ms lag directly impacts search positions and checkout conversions
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      Exploring Google's Core Web Vitals. Let's break down how sub-second speed boosts semantic search ranking weight and slashes card abandonment rates.
-                    </p>
-                  </div>
-
-                  {/* Article 2 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-2">
-                    <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-2">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> Performance Ads</span>
-                      <span>·</span>
-                      <span className="flex items-center gap-1"><Clock size={10} /> 6 min read</span>
-                    </div>
-                    <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      Architecting custom landing pages for Meta & Google campaign success
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      Forget standard generic builder page templates. How bespoke layouts with clean font pairing, precise loading buffers, and focused action steps scale return on ad spend.
-                    </p>
-                  </div>
-
-                  {/* Article 3 */}
-                  <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex flex-col gap-2" id="article-card-3">
-                    <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400" id="article-meta-3">
-                      <span className="flex items-center gap-1"><BookOpen size={10} /> Brand Identity</span>
-                      <span>·</span>
-                      <span className="flex items-center gap-1"><Clock size={10} /> 3 min read</span>
-                    </div>
-                    <h3 className="text-white text-base font-semibold group-hover:text-amber-300 transition-colors leading-snug">
-                      Typography and user trust: why brand styling is the silent growth driver
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm line-clamp-2">
-                      In crowded, saturated social feeds, modern visual clarity wins attention. Learn how premium custom letter-spacing and contrast elevate B2B sales authority.
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </motion.div>
             )}
             </AnimatePresence>
           </main>
         </div>
+
+        {/* Project detail overlay card (fully single section integrated) */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute inset-0 z-40 bg-neutral-950/95 backdrop-blur-2xl flex flex-col p-5 sm:p-8 justify-between overflow-y-auto"
+              id="project-detail-overlay"
+            >
+              {/* Overlay Header */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 shrink-0" id="project-detail-header">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono text-neutral-400">Case Study</span>
+                  <span className="text-neutral-600">/</span>
+                  <span className={`text-xs font-mono uppercase ${selectedProject.badgeColor}`}>
+                    {selectedProject.category}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  id="project-detail-close"
+                  aria-label="Close details"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Main Content Body */}
+              <div className="flex-1 flex flex-col lg:flex-row gap-8 lg:items-start" id="project-detail-body">
+                {/* Left Side: Info */}
+                <div className="flex-1 flex flex-col gap-6" id="project-detail-left">
+                  {/* Title & Massive Stat */}
+                  <div className="flex flex-col gap-2">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-medium text-white tracking-tight leading-none">
+                      {selectedProject.title}
+                    </h2>
+                    
+                    <div className="flex items-baseline gap-2 mt-2">
+                      <span className={`text-2xl sm:text-3xl font-mono font-bold tracking-tight ${selectedProject.badgeColor}`}>
+                        {selectedProject.badge}
+                      </span>
+                      <span className="text-xs text-neutral-400 font-sans uppercase">delivered outcome</span>
+                    </div>
+                  </div>
+
+                  {/* Curated Narrative Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2" id="project-narrative">
+                    <div className="flex flex-col gap-1.5" id="narrative-challenge">
+                      <h4 className="text-neutral-400 text-xs font-semibold uppercase font-mono tracking-wider">The Challenge</h4>
+                      <p className="text-neutral-200 text-sm leading-relaxed font-sans font-normal">
+                        {selectedProject.challenge}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1.5" id="narrative-solution">
+                      <h4 className="text-neutral-400 text-xs font-semibold uppercase font-mono tracking-wider">Our Solution</h4>
+                      <p className="text-neutral-200 text-sm leading-relaxed font-sans font-normal">
+                        {selectedProject.solution}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1.5" id="narrative-results">
+                      <h4 className="text-neutral-400 text-xs font-semibold uppercase font-mono tracking-wider">The Results</h4>
+                      <p className="text-neutral-200 text-sm leading-relaxed font-sans font-normal">
+                        {selectedProject.results}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Sidebar Panel */}
+                <div className="w-full lg:w-80 shrink-0 flex flex-col gap-5" id="project-detail-right">
+                  {/* Delivered Services */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5" id="project-detail-services">
+                    <h4 className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-3">Services Delivered</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.services.map((service: string) => (
+                        <span 
+                          key={service} 
+                          className="bg-white/5 border border-white/10 text-neutral-300 text-xs px-2.5 py-1 rounded-full font-mono"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Immediate Action CTA */}
+                  <div className="bg-gradient-to-br from-white/10 to-transparent border border-white/10 rounded-2xl p-5 flex flex-col gap-4" id="project-detail-cta">
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-sm font-semibold text-white">Ready for similar growth?</h4>
+                      <p className="text-neutral-400 text-xs leading-relaxed">
+                        Let's customize custom code, advanced SEO, and high-conversion strategy to scale your brand.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProject(null);
+                        handleNavigate('home');
+                        // Pre-select the services relevant to the project
+                        const matchingServices = selectedProject.services.filter((s: string) => SERVICES.includes(s));
+                        if (matchingServices.length > 0) {
+                          setSelected(matchingServices);
+                        }
+                      }}
+                      className="w-full bg-white text-black hover:bg-neutral-200 active:scale-95 transition-all py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      id="project-cta-submit"
+                    >
+                      Start a project <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="border-t border-white/10 pt-4 mt-6 shrink-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3" id="project-detail-footer">
+                <span className="text-xs text-neutral-500 font-mono">Forma Case Study Archive</span>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="text-xs text-neutral-300 hover:text-white transition-colors underline decoration-dotted underline-offset-4 font-mono flex items-center gap-1.5 cursor-pointer"
+                >
+                  Back to case studies
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Journal article detail overlay card */}
+        <AnimatePresence>
+          {selectedArticle && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute inset-0 z-40 bg-neutral-950/95 backdrop-blur-2xl flex flex-col p-5 sm:p-8 justify-between overflow-y-auto"
+              id="article-detail-overlay"
+            >
+              {/* Overlay Header */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 shrink-0" id="article-detail-header">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono text-neutral-400">Journal Entry</span>
+                  <span className="text-neutral-600">/</span>
+                  <span className="text-xs font-mono text-amber-400 uppercase">
+                    {selectedArticle.category}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  id="article-detail-close"
+                  aria-label="Close article"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Main Content Body */}
+              <div className="flex-1 flex flex-col lg:flex-row gap-8 lg:items-start" id="article-detail-body">
+                {/* Left Side: Article Content */}
+                <div className="flex-1 flex flex-col gap-6" id="article-detail-left">
+                  {/* Title & Metadata */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 text-[11px] font-mono text-neutral-400">
+                      <span>{selectedArticle.publishDate}</span>
+                      <span>·</span>
+                      <span className="flex items-center gap-1"><Clock size={10} /> {selectedArticle.readTime}</span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-medium text-white tracking-tight leading-tight mt-1">
+                      {selectedArticle.title}
+                    </h2>
+                  </div>
+
+                  {/* Curated Narrative Section */}
+                  <div className="flex flex-col gap-5 max-w-3xl" id="article-narrative">
+                    <p className="text-neutral-200 text-sm sm:text-base leading-relaxed font-sans font-normal">
+                      {selectedArticle.introduction}
+                    </p>
+
+                    {/* Key Insights Box */}
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col gap-3.5" id="article-key-insights">
+                      <h4 className="text-xs font-mono text-amber-300 uppercase tracking-wider">Tactical Insights</h4>
+                      <div className="flex flex-col gap-3">
+                        {selectedArticle.keyInsights.map((insight, idx) => (
+                          <div key={idx} className="flex gap-2.5 items-start">
+                            <span className="w-5 h-5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 flex items-center justify-center text-[10px] font-mono font-bold shrink-0 mt-0.5">
+                              {idx + 1}
+                            </span>
+                            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans">
+                              {insight}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Deep Dive</h4>
+                      <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-sans">
+                        {selectedArticle.deepDive}
+                      </p>
+                    </div>
+
+                    <div className="border-l-2 border-amber-400 pl-4 py-1.5 my-1 bg-amber-400/5 rounded-r-xl">
+                      <h5 className="text-xs font-semibold text-amber-300 uppercase tracking-wider font-mono mb-1">Key Takeaway</h5>
+                      <p className="text-neutral-200 text-xs sm:text-sm italic leading-relaxed font-sans">
+                        {selectedArticle.takeaway}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Sidebar Panel */}
+                <div className="w-full lg:w-80 shrink-0 flex flex-col gap-5" id="article-detail-right">
+                  {/* Share or Like block */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col gap-4" id="article-interaction-card">
+                    <h4 className="text-xs font-mono text-neutral-400 uppercase tracking-wider">Reader tools</h4>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-neutral-300 font-sans">Did you find this valuable?</span>
+                      <button 
+                        onClick={() => {
+                          setLikedArticles(prev => ({
+                            ...prev,
+                            [selectedArticle.id]: !prev[selectedArticle.id]
+                          }));
+                        }}
+                        className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition-all cursor-pointer shadow-sm ${
+                          likedArticles[selectedArticle.id]
+                            ? 'bg-red-500 text-white hover:bg-red-600'
+                            : 'bg-amber-400 text-black hover:bg-amber-300'
+                        }`}
+                      >
+                        <Heart size={12} fill={likedArticles[selectedArticle.id] ? "white" : "none"} />
+                        {likedArticles[selectedArticle.id] ? 'Liked!' : 'Like'}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Immediate Action CTA */}
+                  <div className="bg-gradient-to-br from-amber-400/10 to-transparent border border-amber-400/20 rounded-2xl p-5 flex flex-col gap-4" id="article-detail-cta">
+                    <div className="flex flex-col gap-1">
+                      <h4 className="text-sm font-semibold text-white">Need help implementing this?</h4>
+                      <p className="text-neutral-400 text-xs leading-relaxed">
+                        We build high-converting brands and scale them with custom code, premium SEO, and conversion optimization.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedArticle(null);
+                        handleNavigate('home');
+                        // Pre-select 'SEO & Optimization' or other relevant service based on category
+                        if (selectedArticle.category.includes('SEO')) {
+                          setSelected(['SEO & Optimization', 'Web Development']);
+                        } else if (selectedArticle.category.includes('Ads')) {
+                          setSelected(['Paid Ads Campaign', 'Digital Marketing']);
+                        } else {
+                          setSelected(['Brand & UI Design']);
+                        }
+                      }}
+                      className="w-full bg-white text-black hover:bg-neutral-200 active:scale-[0.98] transition-all py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      id="article-cta-submit"
+                    >
+                      Start a project <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="border-t border-white/10 pt-4 mt-6 shrink-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3" id="article-detail-footer">
+                <span className="text-xs text-neutral-500 font-mono">Forma Journal & Insights</span>
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="text-xs text-neutral-300 hover:text-white transition-colors underline decoration-dotted underline-offset-4 font-mono flex items-center gap-1.5 cursor-pointer"
+                >
+                  Back to insights
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
